@@ -1,233 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Separation Demo</title>
-    <style>
-        body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f5f7fa;
-            color: #333;
-        }
+<html>
+    <head>
+        <title>Improving Phase-Vocoder-Based Time Stretching by Time-Directional Spectrogram Squeezing</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
 
-        /* タイトル周りのデザイン調整 */
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+    <body>
+        <div class="main">
+            <article>
+                <header>
+                    <h1>Improving Phase-Vocoder-Based Time Stretching by Time-Directional Spectrogram Squeezing</h1>
+                </header>
+            </article>
+            <div>
+                <p>
+                    Natsuki Akaishi,
+                    Kohei Yatabe,
+                    Yasuhiro Oikawa
+                </p>
+            </div>
+            <p><b>Abstract:</b> Time stretching of music signals has a crucial problem, i.e., smearing of percussive sounds. Some time stretching algorithms have addressed this problem by detecting percussive components and manipulating them differently from the other components. However, conventional methods cause artifacts. In this paper, to prevent percussion smearing, we propose a preprocessing for time stretching. The proposed algorithm aims to preserve time scale of percussive components while stretching the rest of components in the usual way. To do so, time-frequency bins dominated by percussive components are squeezed in time direction so as to preserve the shape of spectrogram of percussive components. Our experiment showed that our method can improve sound quality for long stretching.<br /><br />
+            <img src="img/3dsqueezing.png" width="60%" height="60%" class="center"/> <br />
+            <font size="2pt"><p><b>Fig.</b> Illustration of the proposed time-directional squeezing. In the bottom figures, the percussive component is colored in blue, the sinusoidal component is colored in red, and the mixed component is colored in purple.</p></font><br />
 
-        p.conference-name {
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+            <div>
+            <br />
+            We used eight algorithms for seven audio excerpts from [1]. The seven excerpts were stretched by the eight algorithms with a moderate time stretching factor &alpha; = 1.6 and a large stretching factor &alpha; = 3.2.
+            <br />
+            <br />
+            <b>Google Chrome is recommended.</b>
+            <br /><br />
 
-        h1 { 
-            text-align: center; 
-            margin: 0 0 15px 0; 
-            font-size: 1.8rem; /* 長いタイトルなので少し文字サイズを調整 */
-            line-height: 1.4;
-        }
+            <center>
+            <b> &alpha; = 1.6 </b><br />
+            <table>
+            <tbody>
+                <tr>
+                    <th align="center"></th>
+                    <td align="center"> &alpha;=1.0 <br /></td>
+                    <td align="center"> PV [2] <br /></td>
+                    <td align="center"> PVL [3] <br /></td>
+                    <td align="center"> PVDR [4] <br /></td>
+                    <td align="center"> NW [5] <br /></td>
+                    <td align="center"> HP [6] <br /></td>
+                    <td align="center"> prop. PV <br /></td>
+                    <td align="center"> prop. PVL <br /></td>
+                    <td align="center"> prop. PVDR <br /></td>                   
+                </tr>
 
-        p.subtitle { 
-            text-align: center; 
-            color: #555; 
-            margin-bottom: 50px; 
-            font-style: italic;
-        }
+                <tr>
+                    <th align="center"> Bongo </th>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_original.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha16/Bongo_PV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha16/Bongo_PVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha16/Bongo_PVDR_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha16/Bongo_NW_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha16/Bongo_HPSS_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha16/Bongo_propPV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha16/Bongo_propPVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha16/Bongo_propPVDR_alpha16.wav"></audio><br /></td>                   
+                </tr> 
+                
+                <tr>
+                    <th align="center"> CastanetsViolin </th>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_original.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha16/CastanetsViolin_PV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha16/CastanetsViolin_PVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha16/CastanetsViolin_PVDR_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha16/CastanetsViolin_NW_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha16/CastanetsViolin_HPSS_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha16/CastanetsViolin_propPV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha16/CastanetsViolin_propPVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha16/CastanetsViolin_propPVDR_alpha16.wav"></audio><br /></td>                   
+                </tr>
 
-        h2.model-title {
-            background-color: #2c3e50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 60px;
-        }
+                <tr>
+                    <th align="center"> DrumSolo </th>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_original.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha16/DrumSolo_PV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha16/DrumSolo_PVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha16/DrumSolo_PVDR_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha16/DrumSolo_NW_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha16/DrumSolo_HPSS_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha16/DrumSolo_propPV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha16/DrumSolo_propPVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha16/DrumSolo_propPVDR_alpha16.wav"></audio><br /></td>                   
+                </tr>
 
-        h3.sample-title {
-            margin-top: 40px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-            color: #444;
-        }
+                <tr>
+                    <th align="center"> Glockenspiel </th>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_original.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha16/Glockenspiel_PV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha16/Glockenspiel_PVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha16/Glockenspiel_PVDR_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha16/Glockenspiel_NW_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha16/Glockenspiel_HPSS_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha16/Glockenspiel_propPV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha16/Glockenspiel_propPVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha16/Glockenspiel_propPVDR_alpha16.wav"></audio><br /></td>                   
+                </tr>
 
-        /* テーブルのデザイン */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            margin-bottom: 30px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            vertical-align: middle;
-        }
+                <tr>
+                    <th align="center"> Jazz </th>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_original.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha16/Jazz_PV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha16/Jazz_PVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha16/Jazz_PVDR_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha16/Jazz_NW_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha16/Jazz_HPSS_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha16/Jazz_propPV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha16/Jazz_propPVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha16/Jazz_propPVDR_alpha16.wav"></audio><br /></td>                   
+                </tr>
 
-        th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-            width: 15%; /* ラベルの幅 */
-        }
+                <tr>
+                    <th align="center"> Pop </th>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_original.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha16/Pop_PV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha16/Pop_PVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha16/Pop_PVDR_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha16/Pop_NW_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha16/Pop_HPSS_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha16/Pop_propPV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha16/Pop_propPVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha16/Pop_propPVDR_alpha16.wav"></audio><br /></td>                   
+                </tr>
 
-        /* 提案手法を目立たせる */
-        .highlight-row {
-            background-color: #fffde7; /* 薄い黄色 */
-            border-left: 5px solid #f1c40f;
-        }
-        .highlight-row th {
-            background-color: #fffde7;
-            font-weight: bold;
-            color: #d35400;
-        }
+                <tr>
+                    <th align="center"> Stepdad </th>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_original.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha16/Stepdad_PV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha16/Stepdad_PVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha16/Stepdad_PVDR_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha16/Stepdad_NW_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha16/Stepdad_HPSS_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha16/Stepdad_propPV_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha16/Stepdad_propPVL_alpha16.wav"></audio><br /></td>
+                    <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha16/Stepdad_propPVDR_alpha16.wav"></audio><br /></td>                   
+                </tr>
 
-        /* プレイヤーと画像の幅調整 */
-        audio { width: 250px; }
-        .spec-img {
-            width: 300px; /* 小さめに表示 */
-            height: 60px;
-            object-fit: cover;
-            border: 1px solid #eee;
-            vertical-align: middle;
-        }
-        
-        /* スマホ対応 */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.4rem; } /* スマホではタイトルをさらに小さく */
-            audio { width: 100%; }
-            .spec-img { display: none; } /* スマホでは波形を消してスッキリさせる */
-        }
-    </style>
-</head>
-<body>
+            </tbody>
+            </table>
+            </center><br /><br />
 
-    <header>
-        <p class="conference-name">ICASSP 2026 Submission</p>
-        
-        <h1>Encoder-Masking-Decoder Framework Using Cayley Convolution<br>as Invertible Linear Encoder</h1>
-        
-        <p class="subtitle">Comparison of Conv-TasNet and RE-SepFormer with Proposed Method</p>
-    </header>
+            <center>
+                <b> &alpha; = 3.2 </b><br />
+                <table>
+                <tbody>
+                    <tr>
+                        <th align="center"></th>
+                        <td align="center"> &alpha;=1.0 <br /></td>
+                        <td align="center"> PV [2] <br /></td>
+                        <td align="center"> PVL [3] <br /></td>
+                        <td align="center"> PVDR [4] <br /></td>
+                        <td align="center"> NW [5] <br /></td>
+                        <td align="center"> HP [6] <br /></td>
+                        <td align="center"> prop. PV <br /></td>
+                        <td align="center"> prop. PVL <br /></td>
+                        <td align="center"> prop. PVDR <br /></td>                   
+                    </tr>
+    
+                    <tr>
+                        <th align="center"> Bongo </th>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_original.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha32/Bongo_PV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha32/Bongo_PVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha32/Bongo_PVDR_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha32/Bongo_NW_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha32/Bongo_HPSS_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha32/Bongo_propPV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha32/Bongo_propPVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Bongo/Bongo_alpha32/Bongo_propPVDR_alpha32.wav"></audio><br /></td>                   
+                    </tr> 
+                    
+                    <tr>
+                        <th align="center"> CastanetsViolin </th>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_original.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha32/CastanetsViolin_PV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha32/CastanetsViolin_PVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha32/CastanetsViolin_PVDR_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha32/CastanetsViolin_NW_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha32/CastanetsViolin_HPSS_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha32/CastanetsViolin_propPV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha32/CastanetsViolin_propPVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/CastanetsViolin/CastanetsViolin_alpha32/CastanetsViolin_propPVDR_alpha32.wav"></audio><br /></td>                   
+                    </tr>
+    
+                    <tr>
+                        <th align="center"> DrumSolo </th>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_original.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha32/DrumSolo_PV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha32/DrumSolo_PVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha32/DrumSolo_PVDR_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha32/DrumSolo_NW_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha32/DrumSolo_HPSS_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha32/DrumSolo_propPV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha32/DrumSolo_propPVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/DrumSolo/DrumSolo_alpha32/DrumSolo_propPVDR_alpha32.wav"></audio><br /></td>                   
+                    </tr>
+    
+                    <tr>
+                        <th align="center"> Glockenspiel </th>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_original.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha32/Glockenspiel_PV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha32/Glockenspiel_PVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha32/Glockenspiel_PVDR_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha32/Glockenspiel_NW_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha32/Glockenspiel_HPSS_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha32/Glockenspiel_propPV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha32/Glockenspiel_propPVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Glockenspiel/Glockenspiel_alpha32/Glockenspiel_propPVDR_alpha32.wav"></audio><br /></td>                   
+                    </tr>
+    
+                    <tr>
+                        <th align="center"> Jazz </th>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_original.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha32/Jazz_PV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha32/Jazz_PVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha32/Jazz_PVDR_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha32/Jazz_NW_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha32/Jazz_HPSS_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha32/Jazz_propPV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha32/Jazz_propPVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Jazz/Jazz_alpha32/Jazz_propPVDR_alpha32.wav"></audio><br /></td>                   
+                    </tr>
+    
+                    <tr>
+                        <th align="center"> Pop </th>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_original.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha32/Pop_PV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha32/Pop_PVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha32/Pop_PVDR_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha32/Pop_NW_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha32/Pop_HPSS_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha32/Pop_propPV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha32/Pop_propPVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Pop/Pop_alpha32/Pop_propPVDR_alpha32.wav"></audio><br /></td>                   
+                    </tr>
+    
+                    <tr>
+                        <th align="center"> Stepdad </th>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_original.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha32/Stepdad_PV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha32/Stepdad_PVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha32/Stepdad_PVDR_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha32/Stepdad_NW_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha32/Stepdad_HPSS_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha32/Stepdad_propPV_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha32/Stepdad_propPVL_alpha32.wav"></audio><br /></td>
+                        <td align="center"> <audio controls src="soundDemoForHearingTest/Stepdad/Stepdad_alpha32/Stepdad_propPVDR_alpha32.wav"></audio><br /></td>                   
+                    </tr>
+    
+                </tbody>
+                </table>
+                </center><br /><br />
 
-    <h2 class="model-title">Model: Conv-TasNet</h2>
-
-    <h3 class="sample-title">Audio Sample 01</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Method</th>
-                <th>Audio</th>
-                <th>Spectrogram</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Input (Mixture)</th>
-                <td><audio controls src="conv_01_input.mp3"></audio></td>
-                <td><img src="conv_01_input.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Target (Clean)</th>
-                <td><audio controls src="conv_01_target.mp3"></audio></td>
-                <td><img src="conv_01_target.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Conv.</th>
-                <td><audio controls src="conv_01_method1.mp3"></audio></td>
-                <td><img src="conv_01_method1.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Conv. (r=1)</th>
-                <td><audio controls src="conv_01_method2.mp3"></audio></td>
-                <td><img src="conv_01_method2.svg" class="spec-img"></td>
-            </tr>
-            <tr class="highlight-row">
-                <th>Prop.</th>
-                <td><audio controls src="conv_01_prop.mp3"></audio></td>
-                <td><img src="conv_01_prop.svg" class="spec-img"></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3 class="sample-title">Audio Sample 02</h3>
-    <table>
-        <tbody>
-            <tr>
-                <th>Input</th>
-                <td><audio controls src="conv_02_input.mp3"></audio></td>
-                <td><img src="conv_02_input.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Target</th>
-                <td><audio controls src="conv_02_target.mp3"></audio></td>
-                <td><img src="conv_02_target.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Conv.</th>
-                <td><audio controls src="conv_02_method1.mp3"></audio></td>
-                <td><img src="conv_02_method1.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Conv. (r=1)</th>
-                <td><audio controls src="conv_02_method2.mp3"></audio></td>
-                <td><img src="conv_02_method2.svg" class="spec-img"></td>
-            </tr>
-            <tr class="highlight-row">
-                <th>Prop.</th>
-                <td><audio controls src="conv_02_prop.mp3"></audio></td>
-                <td><img src="conv_02_prop.svg" class="spec-img"></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3 class="sample-title">Audio Sample 03</h3>
-    <p>（Sample 02のブロックをコピーして、ファイル名を 03 に変えてここに貼る）</p>
+                <h3 id="references">References:</h3>
+                <p>
+                [1] J. Driedger and M. M&uuml;ller, “TSM Toolbox: MATLAB implementations of time-scale modification algorithms,” in Proc. Int. Conf. Digit. Audio Eff. (DAFx), 2014.<br/>
+                [2] M. Portnoff, “Time-scale modification of speech based on short-time fourier analysis,” IEEE Trans. Acoust., Speech, Signal Process., 1981.<br/>
+                [3] J. Laroche and M. Dolson, “Improved phase vocoder timescale modification of audio,” IEEE Trans. Speech Audio Process., 1999.<br/>
+                [4] N. Holighaus and Z. Pr&uring;&scaron;a, “Phase vocoder done right,” in Eur. Assoc. Signal Process. (EUSIPCO), 2017. <br/>
+                [5] F. Nagel and A. Walther, “a novel transient handling scheme for time stretching algorithms,” J. Audio Eng. Soc., 2009.<br/>
+                [6] J. Driedger, M. M&uuml;ller, and S. Ewert, “Improving time-scale modification of music signals using harmonic-percussive separation,” IEEE Signal Proc. Lett., 2014. <br/>
+                </p>
 
 
-    <h2 class="model-title">Model: RE-SepFormer</h2>
+            </div>
 
-    <h3 class="sample-title">Audio Sample 01</h3>
-    <table>
-        <tbody>
-            <tr>
-                <th>Input</th>
-                <td><audio controls src="resep_01_input.mp3"></audio></td>
-                <td><img src="resep_01_input.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Target</th>
-                <td><audio controls src="resep_01_target.mp3"></audio></td>
-                <td><img src="resep_01_target.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Conv.</th>
-                <td><audio controls src="resep_01_method1.mp3"></audio></td>
-                <td><img src="resep_01_method1.svg" class="spec-img"></td>
-            </tr>
-            <tr>
-                <th>Conv. (r=1)</th>
-                <td><audio controls src="resep_01_method2.mp3"></audio></td>
-                <td><img src="resep_01_method2.svg" class="spec-img"></td>
-            </tr>
-            <tr class="highlight-row">
-                <th>Prop.</th>
-                <td><audio controls src="resep_01_prop.mp3"></audio></td>
-                <td><img src="resep_01_prop.svg" class="spec-img"></td>
-            </tr>
-        </tbody>
-    </table>
+   
+ 
 
-    <p>（Conv-TasNetのときと同じように、必要な分だけテーブルをコピーして増やしてください）</p>
+ 
 
-</body>
+ 
+    </body>
 </html>
