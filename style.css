@@ -148,14 +148,6 @@ audio {
   }
 }
 
-/* 左上のヘッダー（Method / Kernel size）の調整 */
-.header-label {
-  font-size: 0.8rem;   /* 他の文字より少し小さくする */
-  line-height: 1.2;    /* 行間を少し狭くして2行でもすっきり見せる */
-  padding: 8px 5px;    /* 余白を微調整 */
-  white-space: nowrap; /* 勝手な折り返しを防ぐ（<br>でのみ改行） */
-}
-
 /* カラムヘッダを sticky にする */
 thead th {
   position: sticky;
@@ -171,4 +163,46 @@ tbody tr:hover {
 /* 再生中の行を強調（JSなしでもOK） */
 audio:focus {
   outline: 2px solid #3498db;
+}
+
+/* 斜め線ヘッダーの設定 */
+.diag-header {
+  position: relative;
+  width: 150px;       /* 幅を固定 */
+  height: 60px;       /* 高さを確保 */
+  padding: 0 !important; /* パディングをリセット */
+  background-color: #f1f5f9;
+  overflow: hidden;
+}
+
+/* 斜めの線（グラデーションで描画） */
+.diag-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top right, transparent 49%, #ccc 49%, #ccc 51%, transparent 51%);
+  pointer-events: none;
+}
+
+/* 右上の文字 */
+.header-top {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  text-align: right;
+  color: #555;
+}
+
+/* 左下の文字 */
+.header-bottom {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  font-size: 0.8rem;
+  text-align: left;
+  color: #555;
 }
