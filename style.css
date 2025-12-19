@@ -132,7 +132,7 @@ tr.proposed-row th {
 
 /* オーディオプレイヤー */
 audio {
-  width: 110px; /* 少しだけ大きく */
+  width: 100px; /* 少しだけ大きく */
   height: 25px;
   vertical-align: middle;
 }
