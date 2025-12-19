@@ -155,3 +155,20 @@ audio {
   padding: 8px 5px;    /* 余白を微調整 */
   white-space: nowrap; /* 勝手な折り返しを防ぐ（<br>でのみ改行） */
 }
+
+/* カラムヘッダを sticky にする */
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* 行 hover を追加（どこを聴いてるか分かる） */
+tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* 再生中の行を強調（JSなしでもOK） */
+audio:focus {
+  outline: 2px solid #3498db;
+}
