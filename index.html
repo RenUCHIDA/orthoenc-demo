@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Separation Demo</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        h1 { text-align: center; margin-bottom: 10px; }
+        p.subtitle { text-align: center; color: #666; margin-bottom: 50px; }
+
+        h2.model-title {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 60px;
+        }
+
+        h3.sample-title {
+            margin-top: 40px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            color: #444;
+        }
+
+        /* テーブルのデザイン */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            width: 15%; /* ラベルの幅 */
+        }
+
+        /* 提案手法を目立たせる */
+        .highlight-row {
+            background-color: #fffde7; /* 薄い黄色 */
+            border-left: 5px solid #f1c40f;
+        }
+        .highlight-row th {
+            background-color: #fffde7;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        /* プレイヤーと画像の幅調整 */
+        audio { width: 250px; }
+        .spec-img {
+            width: 300px; /* 小さめに表示 */
+            height: 60px;
+            object-fit: cover;
+            border: 1px solid #eee;
+            vertical-align: middle;
+        }
+        
+        /* スマホ対応 */
+        @media (max-width: 600px) {
+            audio { width: 100%; }
+            .spec-img { display: none; } /* スマホでは波形を消してスッキリさせる */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Audio Separation Results</h1>
+    <p class="subtitle">Comparison of Conv-TasNet and RE-SepFormer with Proposed Method</p>
+
+    <h2 class="model-title">Model: Conv-TasNet</h2>
+
+    <h3 class="sample-title">Audio Sample 01</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Audio</th>
+                <th>Spectrogram</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Input (Mixture)</th>
+                <td><audio controls src="conv_01_input.mp3"></audio></td>
+                <td><img src="conv_01_input.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Target (Clean)</th>
+                <td><audio controls src="conv_01_target.mp3"></audio></td>
+                <td><img src="conv_01_target.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Conv.</th>
+                <td><audio controls src="conv_01_method1.mp3"></audio></td>
+                <td><img src="conv_01_method1.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Conv. (r=1)</th>
+                <td><audio controls src="conv_01_method2.mp3"></audio></td>
+                <td><img src="conv_01_method2.svg" class="spec-img"></td>
+            </tr>
+            <tr class="highlight-row">
+                <th>Prop.</th>
+                <td><audio controls src="conv_01_prop.mp3"></audio></td>
+                <td><img src="conv_01_prop.svg" class="spec-img"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="sample-title">Audio Sample 02</h3>
+    <table>
+        <tbody>
+            <tr>
+                <th>Input</th>
+                <td><audio controls src="conv_02_input.mp3"></audio></td>
+                <td><img src="conv_02_input.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Target</th>
+                <td><audio controls src="conv_02_target.mp3"></audio></td>
+                <td><img src="conv_02_target.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Conv.</th>
+                <td><audio controls src="conv_02_method1.mp3"></audio></td>
+                <td><img src="conv_02_method1.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Conv. (r=1)</th>
+                <td><audio controls src="conv_02_method2.mp3"></audio></td>
+                <td><img src="conv_02_method2.svg" class="spec-img"></td>
+            </tr>
+            <tr class="highlight-row">
+                <th>Prop.</th>
+                <td><audio controls src="conv_02_prop.mp3"></audio></td>
+                <td><img src="conv_02_prop.svg" class="spec-img"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="sample-title">Audio Sample 03</h3>
+    <p>（Sample 02のブロックをコピーして、ファイル名を 03 に変えてここに貼る）</p>
+
+
+    <h2 class="model-title">Model: RE-SepFormer</h2>
+
+    <h3 class="sample-title">Audio Sample 01</h3>
+    <table>
+        <tbody>
+            <tr>
+                <th>Input</th>
+                <td><audio controls src="resep_01_input.mp3"></audio></td>
+                <td><img src="resep_01_input.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Target</th>
+                <td><audio controls src="resep_01_target.mp3"></audio></td>
+                <td><img src="resep_01_target.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Conv.</th>
+                <td><audio controls src="resep_01_method1.mp3"></audio></td>
+                <td><img src="resep_01_method1.svg" class="spec-img"></td>
+            </tr>
+            <tr>
+                <th>Conv. (r=1)</th>
+                <td><audio controls src="resep_01_method2.mp3"></audio></td>
+                <td><img src="resep_01_method2.svg" class="spec-img"></td>
+            </tr>
+            <tr class="highlight-row">
+                <th>Prop.</th>
+                <td><audio controls src="resep_01_prop.mp3"></audio></td>
+                <td><img src="resep_01_prop.svg" class="spec-img"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>（Conv-TasNetのときと同じように、必要な分だけテーブルをコピーして増やしてください）</p>
+
+</body>
+</html>
