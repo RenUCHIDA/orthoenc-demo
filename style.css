@@ -9,7 +9,7 @@ body {
 
 /* メインコンテナ */
 .main {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 40px auto;
   padding: 40px;
   background-color: #fff;
@@ -132,7 +132,7 @@ tr.proposed-row th {
 
 /* オーディオプレイヤー */
 audio {
-  width: 100px; /* 少しだけ大きく */
+  width: 110px; /* 少しだけ大きく */
   height: 25px;
   vertical-align: middle;
 }
