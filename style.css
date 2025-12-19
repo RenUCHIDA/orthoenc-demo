@@ -2,7 +2,7 @@
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
-  background-color: #f4f6f8; /* 背景を少しグレーにして、メインコンテンツを際立たせる */
+  background-color: #f4f6f8;
   color: #333;
   line-height: 1.6;
 }
@@ -13,7 +13,7 @@ body {
   margin: 40px auto;
   padding: 40px;
   background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* ほんのり影をつける */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   border-radius: 8px;
 }
 
@@ -48,11 +48,9 @@ header h1 {
   border-bottom: 1px solid #eee;
   padding-bottom: 40px;
 }
-
 .sample-section:last-child {
   border-bottom: none;
 }
-
 .sample-title {
   font-size: 1.4rem;
   border-left: 5px solid #2c3e50;
@@ -67,72 +65,126 @@ header h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px; /* 間隔を少し広げる */
+  gap: 30px;
   width: 100%;
 }
-
 .column {
   flex: 1;
-  min-width: 450px; /* 幅が狭くなったら折り返す */
+  min-width: 450px;
   max-width: 100%;
 }
-
 .model-name {
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #444;
   display: block;
 }
 
-/* テーブルデザイン */
+/* テーブル全体 */
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
   margin-bottom: 20px;
   background-color: #fff;
+  border: 1px solid #eee; /* 外枠を追加 */
 }
 
 th, td {
-  padding: 10px 5px;
+  padding: 12px 8px; /* パディングを少し広げてゆったりさせる */
   text-align: center;
   border-bottom: 1px solid #eee;
   vertical-align: middle;
 }
 
-/* テーブルヘッダー */
+/* 行ホバー効果（マウスを乗せると少し暗くなる） */
+tbody tr:hover {
+  background-color: #f8fbff;
+}
+
+/* テーブルヘッダー（列名） */
 thead th {
   background-color: #f1f5f9;
   color: #555;
   font-weight: 600;
   font-size: 0.85rem;
+  border-bottom: 2px solid #ddd; /* ヘッダーの下線を少し太く */
 }
 
-/* 行のラベル（左端） */
+/* 行のラベル（左端：Method名） */
 tbody th {
   text-align: left;
-  padding-left: 10px;
+  padding-left: 15px;
   font-weight: normal;
   color: #444;
-  width: 140px; /* ラベル幅固定 */
+  width: 150px;
+  background-color: #fff; /* 背景を白で固定 */
 }
 
 /* 提案手法（Proposed）のハイライト */
 tr.proposed-row {
-  background-color: #fffbeb; /* 薄い黄色 */
-  border-left: 3px solid #f59e0b; /* アクセントカラー */
+  background-color: #fffbeb;
 }
-
+/* ホバー時も黄色っぽさを維持 */
+tr.proposed-row:hover {
+  background-color: #fff8d1; 
+}
+tr.proposed-row th, 
+tr.proposed-row td {
+  border-top: 2px solid #fcd34d; /* 上下に枠線をつけて目立たせる */
+  border-bottom: 2px solid #fcd34d;
+}
 tr.proposed-row th {
   font-weight: bold;
   color: #d97706;
 }
 
+/* ▼▼▼ 斜めヘッダー（Diagonal Header） ▼▼▼ */
+.diag-header {
+  position: relative;
+  background-color: #f1f5f9;
+  width: 160px; /* 幅を確保 */
+  height: 60px; /* 高さ確保 */
+  padding: 0 !important; /* パディングリセット */
+  overflow: hidden;
+}
+
+/* 斜めの線（CSSグラデーションで描画） */
+.diag-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top right, transparent 49.5%, #ccc 49.5%, #ccc 50.5%, transparent 50.5%);
+  pointer-events: none;
+}
+
+/* 右上の文字（Kernel size） */
+.header-top {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 0.75rem;
+  text-align: right;
+  line-height: 1.2;
+}
+
+/* 左下の文字（Method） */
+.header-bottom {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  font-size: 0.75rem;
+  text-align: left;
+}
+
+
 /* オーディオプレイヤー */
 audio {
-  width: 110px; /* 少しだけ大きく */
+  width: 110px;
   height: 25px;
   vertical-align: middle;
 }
