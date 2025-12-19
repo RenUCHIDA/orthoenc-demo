@@ -214,3 +214,8 @@ audio:focus {
   text-align: left;
   color: #555;
 }
+
+/* テーブルが画面からはみ出さないようにスクロール枠をつける */
+.column {
+  overflow-x: auto; /* 横スクロールを許可 */
+}
