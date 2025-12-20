@@ -229,7 +229,7 @@ audio:focus {
   justify-content: center;
   align-items: center;
   gap: 40px; /* NoisyとCleanの間隔 */
-  margin-bottom: 20px; /* 下のテーブルとの余白 */
+  margin: 0 auto 20px auto;
   padding: 15px 30px;
   background-color: #f8fafc; /* 少し目立つ背景色 */
   width: fit-content; /* 中身の幅に合わせる */
