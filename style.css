@@ -234,7 +234,7 @@ audio:focus {
   background-color: #f1f5f9; /* 少し目立つ背景色 */
   border-radius: 50px; /* 角丸（カプセル型）にする */
   width: fit-content; /* 中身の幅に合わせる */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
 }
 
 .ref-item {
