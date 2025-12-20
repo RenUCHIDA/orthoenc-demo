@@ -44,22 +44,20 @@ header h1 {
 
 /* サンプルセクション */
 .sample-section {
-  margin-bottom: 30px;
-  /* border-bottom: 1px solid #eee; */
-  padding-bottom: 20px;
-}
-
-.sample-section:last-child {
-  border-bottom: none;
+  margin-bottom: 80px;  /* ★修正: 30px → 80px に増やして、サンプルごとの区切りをはっきりさせる */
+  padding-bottom: 0;
+  border-bottom: none;  /* 既存の線は消して、余白だけで区切る */
 }
 
 .sample-title {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
+  background-color: #f8fafc; /* 背景色を追加 */
   border-left: 5px solid #2c3e50;
-  padding-left: 15px;
-  margin-bottom: 20px;
+  padding: 12px 15px;        /* ★修正: 上下の余白を追加 */
+  margin-bottom: 30px;       /* テーブルとの距離を広げる */
   color: #333;
   font-weight: bold;
+  border-radius: 0 4px 4px 0;
 }
 
 /* 2段組レイアウト */
@@ -96,7 +94,7 @@ table {
 }
 
 th, td {
-  padding: 10px 5px;
+  padding: 12px 8px;   /* ★修正: 10px 5px → 12px 8px に広げる */
   text-align: center;
   border-bottom: 1px solid #eee;
   vertical-align: middle;
@@ -231,13 +229,14 @@ audio:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px; /* NoisyとCleanの間隔 */
-  margin: 0 auto 20px auto; /* 下のテーブルとの余白 */
-  padding: 15px 40px;
-  background-color: #f8fafc; /* 少し目立つ背景色 */
-  /* border-radius: 50px; /* 角丸（カプセル型）にする */
-  width: fit-content; /* 中身の幅に合わせる */
-  /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
+  gap: 50px;                /* ★修正: 間隔を40px→50pxへ */
+  margin: 0 auto 30px auto; /* 下のテーブルとの余白 */
+  padding: 20px 50px;       /* ★修正: 内側の余白を増やす */
+  background-color: #fff;   /* 背景を白にして浮き上がらせる */
+  border: 1px solid #e2e8f0;
+  border-radius: 50px;      /* ★コメントアウト解除: カプセル型にする */
+  width: fit-content;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* ★コメントアウト解除: 影をつける */
 }
 
 .ref-item {
@@ -256,7 +255,7 @@ audio:focus {
 
 /* Reference用のプレイヤーは少し大きめでもOK */
 .reference-wrapper audio {
-  width: 140px;
+  width: 120px;
 }
 
 /* スマホ対応 */
@@ -291,22 +290,24 @@ audio:focus {
 
 /* 結果セクションの導入部 */
 .results-intro {
-  /* max-width: 800px; */
-  margin: 40px auto 20px auto; /* ブロック自体は画面中央のまま */
-  text-align: left;           /* ★変更: 中身の文字を「右寄せ」にする */
-  padding-bottom: 10px;
-  /* border-bottom: 2px solid #e2e8f0; */
+  max-width: 800px;            /* ★コメントアウト解除: 幅を制限して読みやすく */
+  margin: 50px auto 40px auto; /* ★修正: 上下の余白を広げて独立させる */
+  text-align: center;          /* ★修正: 中央寄せ（タイトルと揃える） */
+  padding-bottom: 30px;        /* 下の線との距離 */
+  border-bottom: 1px solid #e2e8f0; /* ★コメントアウト解除: 区切り線を入れる */
 }
 
 .results-intro h2 {
-  font-size: 1.6rem;   /* ★変更: 1.8rem → 1.4rem (かなり控えめなサイズに) */
+  font-size: 1.5rem;
   color: #1e293b;
-  margin-bottom: 10px; /* 余白も少し詰めてスッキリさせる */
-  font-weight: bold;   /* 小さいので太字でメリハリをつける */
+  margin-bottom: 15px;         /* タイトル下の余白 */
+  font-weight: 700;
 }
 
 .results-intro p {
   font-size: 1rem;
   color: #64748b;
-  line-height: 1.6;
+  line-height: 1.8;            /* ★修正: 行間を少し広げて読みやすく */
+  display: inline-block;       /* ブロック幅に合わせる */
+  text-align: left;            /* 文章は左揃え */
 }
