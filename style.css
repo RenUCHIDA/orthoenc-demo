@@ -247,11 +247,11 @@ audio:focus {
 }
 
 .ref-label {
-  /* font-weight: bold; */
+  font-weight: bold;
   color: #475569;
-  font-size: 0.9rem;
-  text-transform: uppercase; /* 大文字にする */
-  letter-spacing: 0.05em;
+  /* font-size: 0.9rem; */
+  /* text-transform: uppercase; /* 大文字にする */ */
+  /* letter-spacing: 0.05em; */
 }
 
 /* Reference用のプレイヤーは少し大きめでもOK */
