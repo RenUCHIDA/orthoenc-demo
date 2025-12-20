@@ -190,7 +190,6 @@ audio:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  /* stroke='%23eee' (色を#eeeに), stroke-width='1' (太さを1pxに) 変更 */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cline x1='0' y1='0' x2='100%25' y2='100%25' stroke='%23eee' stroke-width='1'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -232,12 +231,10 @@ audio:focus {
   justify-content: center;
   align-items: center;
   gap: 40px; /* NoisyとCleanの間隔 */
-  margin: 0 auto 20px auto; /* 下のテーブルとの余白 */
+  margin-bottom: 20px; /* 下のテーブルとの余白 */
   padding: 15px 40px;
   background-color: #f8fafc; /* 少し目立つ背景色 */
-  /* border-radius: 50px; /* 角丸（カプセル型）にする */
   width: fit-content; /* 中身の幅に合わせる */
-  /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
 }
 
 .ref-item {
@@ -291,11 +288,7 @@ audio:focus {
 
 /* 結果セクションの導入部 */
 .results-intro {
-  /* max-width: 800px; */
-  margin: 40px auto 20px auto; /* ブロック自体は画面中央のまま */
-  text-align: left;           /* ★変更: 中身の文字を「右寄せ」にする */
-  padding-bottom: 10px;
-  /* border-bottom: 2px solid #e2e8f0; */
+  text-align: left;
 }
 
 .results-intro h2 {
@@ -306,7 +299,6 @@ audio:focus {
 }
 
 .results-intro p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #64748b;
-  line-height: 1.6;
 }
