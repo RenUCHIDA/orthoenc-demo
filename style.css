@@ -195,6 +195,7 @@ audio:focus {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   pointer-events: none;
+  z-index: 0;
 }
 
 /* 右上の文字 */
@@ -206,6 +207,7 @@ audio:focus {
   color: #555;
   font-size: 0.8rem;   /* 他の文字より少し小さくする */ 
   line-height: 1.2;    /* 行間を少し狭くして2行でもすっきり見せる */
+  z-index: 1;
 }
 
 /* 左下の文字 */
@@ -216,6 +218,7 @@ audio:focus {
   text-align: left;
   color: #555;
   font-size: 0.8rem;   /* 他の文字より少し小さくする */ 
+  z-index: 1;
 }
 
 /* テーブルが画面からはみ出さないようにスクロール枠をつける */
