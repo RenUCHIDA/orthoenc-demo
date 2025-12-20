@@ -285,17 +285,18 @@ audio:focus {
 
 /* 結果セクションの導入部 */
 .results-intro {
-  max-width: 800px;      /* 記事の幅に合わせる（適宜調整） */
-  margin: 40px auto 20px auto; /* 上に少し広めの余白 */
-  text-align: center;    /* 中央寄せ */
+  max-width: 800px;
+  margin: 40px auto 20px auto; /* ブロック自体は画面中央のまま */
+  text-align: right;           /* ★変更: 中身の文字を「右寄せ」にする */
   padding-bottom: 20px;
-  border-bottom: 2px solid #e2e8f0; /* 薄い区切り線を入れる */
+  border-bottom: 2px solid #e2e8f0;
 }
 
 .results-intro h2 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;   /* ★変更: 1.8rem → 1.3rem (かなり控えめなサイズに) */
   color: #1e293b;
-  margin-bottom: 15px;
+  margin-bottom: 10px; /* 余白も少し詰めてスッキリさせる */
+  font-weight: bold;   /* 小さいので太字でメリハリをつける */
 }
 
 .results-intro p {
