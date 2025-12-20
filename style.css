@@ -294,4 +294,5 @@ audio:focus {
   margin: 0; 
   display: inline-block;
   text-align: left;
+  margin-bottom: 10px; /* 余白も少し詰めてスッキリさせる */
 }
