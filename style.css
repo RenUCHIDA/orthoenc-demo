@@ -285,3 +285,24 @@ audio:focus {
   width: 140px;       /* Referenceのプレーヤー幅に合わせる */
   height: auto;       /* 比率維持 */
 }
+
+/* 結果セクションの導入部 */
+.results-intro {
+  max-width: 800px;      /* 記事の幅に合わせる（適宜調整） */
+  margin: 40px auto 20px auto; /* 上に少し広めの余白 */
+  text-align: center;    /* 中央寄せ */
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0; /* 薄い区切り線を入れる */
+}
+
+.results-intro h2 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.results-intro p {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+}
