@@ -278,6 +278,7 @@ audio:focus {
 /* 結果セクションの導入部 */
 .results-intro {
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .results-intro h2 {
@@ -293,5 +294,5 @@ audio:focus {
   margin: 0; 
   display: inline-block;
   text-align: left;
-  margin-bottom: 10px; /* 余白も少し詰めてスッキリさせる */
+  margin-bottom: 10px;
 }
