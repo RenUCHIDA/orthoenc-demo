@@ -107,7 +107,7 @@ thead th {
   background-color: #f1f5f9;
   color: #555;
   font-weight: 600;
-  font-size: 0.85rem;
+  /* font-size: 0.85rem; */
 }
 
 /* 行のラベル（左端） */
