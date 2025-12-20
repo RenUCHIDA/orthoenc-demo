@@ -291,4 +291,7 @@ audio:focus {
 .results-intro p {
   font-size: 1rem;
   color: #64748b;
+  margin: 0; 
+  display: inline-block;
+  text-align: left;
 }
