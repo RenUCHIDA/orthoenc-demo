@@ -293,7 +293,7 @@ audio:focus {
 .results-intro {
   /* max-width: 800px; */
   margin: 40px auto 20px auto; /* ブロック自体は画面中央のまま */
-  text-align: right;           /* ★変更: 中身の文字を「右寄せ」にする */
+  text-align: left;           /* ★変更: 中身の文字を「右寄せ」にする */
   padding-bottom: 20px;
   /* border-bottom: 2px solid #e2e8f0; */
 }
