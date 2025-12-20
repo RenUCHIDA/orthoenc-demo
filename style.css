@@ -45,7 +45,6 @@ header h1 {
 /* サンプルセクション */
 .sample-section {
   margin-bottom: 30px;
-  /* border-bottom: 1px solid #eee; */
   padding-bottom: 20px;
 }
 
@@ -107,7 +106,6 @@ thead th {
   background-color: #f1f5f9;
   color: #555;
   font-weight: bold;
-  /* font-size: 0.85rem; */
 }
 
 /* 行のラベル（左端） */
@@ -246,14 +244,6 @@ audio:focus {
 .ref-label {
   font-weight: bold;
   color: #475569;
-  /* font-size: 0.9rem; */
-  /* text-transform: uppercase; /* 大文字にする */ */
-  /* letter-spacing: 0.05em; */
-}
-
-/* Reference用のプレイヤーは少し大きめでもOK */
-.reference-wrapper audio {
-  width: 120px;
 }
 
 /* スマホ対応 */
