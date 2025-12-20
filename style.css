@@ -1,312 +1,301 @@
-/* 基本設定 */
+/* =========================================
+   基本設定・タイポグラフィ
+   ========================================= */
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
-  background-color: #f4f6f8; /* 背景を少しグレーにして、メインコンテンツを際立たせる */
-  color: #333;
+  background-color: #f8f9fa; /* より清潔感のある明るいグレー */
+  color: #334155;            /* 真っ黒ではなく、目に優しいダークグレー */
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased; /* 文字を滑らかに */
 }
 
 /* メインコンテナ */
 .main {
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 40px;
+  max-width: 1280px;         /* 1400pxだと広すぎるので少し引き締める */
+  margin: 60px auto;         /* 上下の余白を増やす */
+  padding: 50px 60px;        /* 内側の余白もたっぷりと */
   background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* ほんのり影をつける */
-  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04); /* 柔らかい影 */
+  border-radius: 12px;
 }
 
-/* ヘッダー周り */
-header h1 {
-  font-size: 1.8rem;
+/* =========================================
+   ヘッダー・アブストラクト
+   ========================================= */
+header {
+  margin-bottom: 50px;
   text-align: center;
-  margin-bottom: 20px;
-  color: #2c3e50;
+}
+
+header h1 {
+  font-size: 2.2rem;    /* 1.8rem -> 2.2rem に拡大 */
+  line-height: 1.3;
+  margin-bottom: 15px;
+  color: #1e293b;
+  letter-spacing: -0.02em; /* 文字間を少し詰めて引き締める */
 }
 
 .authors {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #555;
+  font-size: 1.1rem;    /* 少し大きく */
+  color: #64748b;
+  margin-bottom: 40px;
   font-weight: 500;
 }
 
 .abstract {
-  background-color: #f9fafb;
-  padding: 20px;
-  border-left: 4px solid #3498db;
-  border-radius: 4px;
-  font-size: 0.95rem;
-  margin-bottom: 40px;
+  max-width: 900px;     /* 横に広がりすぎないように制限 */
+  margin: 0 auto 50px auto;
+  background-color: #f1f5f9;
+  padding: 25px 35px;
+  border-left: 5px solid #3b82f6; /* 青色を少しモダンに */
+  border-radius: 6px;
+  font-size: 1rem;      /* 0.95rem -> 1rem にして読みやすく */
+  line-height: 1.7;     /* 行間を少し広げる */
   text-align: justify;
+  color: #475569;
 }
 
-/* サンプルセクション */
+/* =========================================
+   結果セクション導入部
+   ========================================= */
+.results-intro {
+  max-width: 900px;     /* アブストラクトと幅を合わせる */
+  margin: 0 auto 40px auto;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.results-intro h2 {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.results-intro p {
+  font-size: 1rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* =========================================
+   サンプルセクション
+   ========================================= */
 .sample-section {
-  margin-bottom: 60px;
-  /* border-bottom: 1px solid #eee; */
-  padding-bottom: 40px;
-}
-
-.sample-section:last-child {
-  border-bottom: none;
+  margin-bottom: 80px; /* セクション間の余白をたっぷり取る */
 }
 
 .sample-title {
   font-size: 1.4rem;
-  border-left: 5px solid #2c3e50;
+  color: #1e293b;
+  font-weight: 700;
+  border-left: 6px solid #1e293b;
   padding-left: 15px;
-  margin-bottom: 20px;
-  color: #333;
-  font-weight: bold;
+  margin-bottom: 25px;
 }
 
-/* 2段組レイアウト */
+/* =========================================
+   Reference (Noisy/Clean) エリア
+   ========================================= */
+.reference-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 0 auto 30px auto;
+  padding: 20px 40px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0; /* 薄い枠線を追加してまとまり感を出す */
+  width: fit-content;
+}
+
+.ref-item {
+  display: flex;
+  flex-direction: column; /* ★変更: ラベルを上に配置 */
+  align-items: center;
+  gap: 8px;
+}
+
+.ref-label {
+  font-weight: 700;
+  color: #475569;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* プレーヤー */
+audio {
+  width: 140px; 
+  height: 32px; /* 少し高さを出して押しやすく */
+  vertical-align: middle;
+}
+
+/* スペクトログラム画像 */
+.spec-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 8px;
+  border-radius: 4px; /* 画像の角を少し丸める */
+}
+
+.reference-wrapper .spec-img {
+  width: 140px;
+}
+
+/* =========================================
+   2段組・テーブルレイアウト
+   ========================================= */
 .columns-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px; /* 間隔を少し広げる */
+  gap: 40px;
   width: 100%;
 }
 
 .column {
   flex: 1;
-  min-width: 450px; /* 幅が狭くなったら折り返す */
+  min-width: 480px;
   max-width: 100%;
 }
 
 .model-name {
   text-align: center;
   font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #444;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #334155;
   display: block;
+  background-color: #f1f5f9; /* タイトル背景を追加 */
+  padding: 8px;
+  border-radius: 6px;
 }
 
-/* テーブルデザイン */
+/* テーブル設定 */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* ボーダーの重なりを回避 */
+  border-spacing: 0;
   font-size: 0.9rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   background-color: #fff;
+  border: 1px solid #e2e8f0; /* テーブル全体の外枠 */
+  border-radius: 8px; /* 角丸テーブル */
+  overflow: hidden;
 }
 
 th, td {
-  padding: 10px 5px;
+  padding: 12px 8px; /* 余白を広げてゆったりさせる */
   text-align: center;
   border-bottom: 1px solid #eee;
   vertical-align: middle;
 }
 
+/* 最後の行の線は消す */
+tr:last-child td, tr:last-child th {
+  border-bottom: none;
+}
+
 /* テーブルヘッダー */
 thead th {
-  background-color: #f1f5f9;
-  color: #555;
-  font-weight: 600;
-  /* font-size: 0.85rem; */
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 2px solid #e2e8f0; /* ヘッダー下の線を少し濃く */
 }
 
-/* 行のラベル（左端） */
+/* 左端の列 */
 tbody th {
   text-align: left;
-  padding-left: 10px;
-  font-weight: normal;
-  color: #444;
-  width: 140px; /* ラベル幅固定 */
+  padding-left: 15px;
+  font-weight: 500;
+  color: #334155;
+  background-color: #fff;
+  width: 150px;
+  border-right: 1px solid #f1f5f9; /* 縦の区切り線を薄く入れる */
 }
 
-/* 提案手法（Proposed）のハイライト */
-tr.proposed-row {
-  background-color: #fffbeb; /* 薄い黄色 */
-  border-left: 3px solid #f59e0b; /* アクセントカラー */
-}
-
-tr.proposed-row th {
-  font-weight: bold;
-  color: #d97706;
-}
-
-/* オーディオプレイヤー */
-audio {
-  width: 120px; /* 少しだけ大きく */
-  height: 25px;
-  vertical-align: middle;
-}
-
-/* スマホ対応 */
-@media (max-width: 900px) {
-  .column {
-    min-width: 100%;
-  }
-  .main {
-    padding: 20px;
-    margin: 10px;
-  }
-}
-
-/* 左上のヘッダー（Method \ Kernel size）の調整 */
-.header-label {
-  font-size: 0.8rem;   /* 他の文字より少し小さくする */ 
-  line-height: 1.2;    /* 行間を少し狭くして2行でもすっきり見せる */
-  padding: 10px 5px;    /* 余白を微調整  */
-  white-space: nowrap; /* 勝手な折り返しを防ぐ（<br>でのみ改行） */
-}
-
-/* カラムヘッダを sticky にする */
-thead th {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-/* 行 hover を追加（どこを聴いてるか分かる） */
+/* ホバー効果 */
 tbody tr:hover {
   background-color: #f8fafc;
+  transition: background-color 0.2s;
 }
 
-/* 再生中の行を強調（JSなしでもOK） */
-audio:focus {
-  outline: 2px solid #3498db;
-}
-
-/* 斜め線ヘッダーの設定 */
+/* 斜め線ヘッダー周り */
 .diag-header {
   position: relative;
-  width: 150px;       /* 幅を固定 */
-  height: 60px;       /* 高さを確保 */
-  padding: 0 !important; /* パディングをリセット */
-  background-color: #f1f5f9;
+  width: 160px; /* 少し広げる */
+  height: 65px; /* 少し高く */
+  padding: 0 !important;
+  background-color: #f8fafc;
   overflow: hidden;
+  border-right: 1px solid #e2e8f0;
 }
 
-/* 斜めの線（罫線 #eee / 1px に合わせました） */
 .diag-line {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* stroke='%23eee' (色を#eeeに), stroke-width='1' (太さを1pxに) 変更 */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cline x1='0' y1='0' x2='100%25' y2='100%25' stroke='%23eee' stroke-width='1'/%3E%3C/svg%3E");
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cline x1='0' y1='0' x2='100%25' y2='100%25' stroke='%23cbd5e1' stroke-width='1'/%3E%3C/svg%3E"); /* 線の色を少し調整 */
   background-repeat: no-repeat;
   background-size: 100% 100%;
   pointer-events: none;
-  z-index: 0;
 }
 
-/* 右上の文字 */
 .header-top {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 8px; right: 8px;
   text-align: right;
-  color: #555;
-  font-size: 0.8rem;   /* 他の文字より少し小さくする */ 
-  line-height: 1.2;    /* 行間を少し狭くして2行でもすっきり見せる */
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.2;
   z-index: 1;
+  background-color: rgba(248, 250, 252, 0.9); /* 透過背景で文字を見やすく */
+  padding: 0 4px;
 }
 
-/* 左下の文字 */
 .header-bottom {
   position: absolute;
-  bottom: 6px;
-  left: 6px;
-  text-align: left;
-  color: #555;
-  font-size: 0.8rem;   /* 他の文字より少し小さくする */ 
-  z-index: 1;
-}
-
-/* テーブルが画面からはみ出さないようにスクロール枠をつける */
-.column {
-  overflow-x: auto; /* 横スクロールを許可 */
-}
-
-/* ▼▼▼ Reference (Noisy/Clean) 表示用 ▼▼▼ */
-.reference-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px; /* NoisyとCleanの間隔 */
-  margin: 0 auto 20px auto; /* 下のテーブルとの余白 */
-  padding: 15px 40px;
-  background-color: #f8fafc; /* 少し目立つ背景色 */
-  /* border-radius: 50px; /* 角丸（カプセル型）にする */
-  width: fit-content; /* 中身の幅に合わせる */
-  /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
-}
-
-.ref-item {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* ラベルとプレイヤーの間隔 */
-}
-
-.ref-label {
-  font-weight: bold;
-  color: #475569;
-  /* font-size: 0.9rem; */
-  /* text-transform: uppercase; /* 大文字にする */ */
-  /* letter-spacing: 0.05em; */
-}
-
-/* Reference用のプレイヤーは少し大きめでもOK */
-.reference-wrapper audio {
-  width: 140px;
-}
-
-/* スマホ対応 */
-@media (max-width: 600px) {
-  .reference-wrapper {
-    flex-direction: column; /* 縦並びにする */
-    gap: 15px;
-    border-radius: 12px;
-    width: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-
-/* ▼▼▼ スペクトログラム画像用のスタイル（枠なし・比率維持） ▼▼▼ */
-.spec-img {
-  display: block;      /* 改行して表示 */
-  width: 100%;         /* 横幅はプレーヤー（またはセル）に合わせる */
-  height: auto;        /* ★重要：高さは自動（画像の比率を崩さない） */
-  margin-top: 5px;     /* プレーヤーとの隙間 */
-  border: none;        /* 枠線をなしにする */
-  border-radius: 0;    /* 角丸もなしにする */
-  background-color: transparent; /* 背景色なし */
-}
-
-/* Referenceエリア内の画像調整 */
-.reference-wrapper .spec-img {
-  width: 140px;       /* Referenceのプレーヤー幅に合わせる */
-  height: auto;       /* 比率維持 */
-}
-
-/* 結果セクションの導入部 */
-.results-intro {
-  /* max-width: 800px; */
-  margin: 40px auto 20px auto; /* ブロック自体は画面中央のまま */
-  text-align: left;           /* ★変更: 中身の文字を「右寄せ」にする */
-  padding-bottom: 20px;
-  /* border-bottom: 2px solid #e2e8f0; */
-}
-
-.results-intro h2 {
-  font-size: 1.6rem;   /* ★変更: 1.8rem → 1.4rem (かなり控えめなサイズに) */
-  color: #1e293b;
-  margin-bottom: 10px; /* 余白も少し詰めてスッキリさせる */
-  font-weight: bold;   /* 小さいので太字でメリハリをつける */
-}
-
-.results-intro p {
-  font-size: 1rem;
+  bottom: 8px; left: 8px;
+  font-size: 0.75rem;
   color: #64748b;
-  line-height: 1.6;
+  z-index: 1;
+  background-color: rgba(248, 250, 252, 0.9);
+  padding: 0 4px;
+}
+
+/* =========================================
+   レスポンシブ (スマホ対応)
+   ========================================= */
+@media (max-width: 900px) {
+  .main {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  
+  header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .column {
+    min-width: 100%; /* スマホでは縦並びに */
+  }
+  
+  .reference-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    width: auto;
+  }
+
+  /* テーブル横スクロール */
+  .column {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
