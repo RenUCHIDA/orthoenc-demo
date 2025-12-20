@@ -230,7 +230,7 @@ audio:focus {
   align-items: center;
   gap: 40px; /* NoisyとCleanの間隔 */
   margin: 0 auto 20px auto;
-  padding: 15px 30px;
+  padding: 15px 20px;
   background-color: #f8fafc; /* 少し目立つ背景色 */
   width: fit-content; /* 中身の幅に合わせる */
 }
